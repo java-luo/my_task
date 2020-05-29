@@ -60,17 +60,18 @@ def check_ticket_number():
 
             if((t['tp_last_stock']<200) & (t['td_tp_id'] not in send_success)):
                 msg="%s日%s场,仅剩余%s张,注意关班!!!"%(ticket['t_date'],ticket_date[t['tp_id']],t['tp_last_stock'])
-                my_message.ifttt_send_meaasge({"Value1":msg})
+                print(msg)
+                # my_message.wechat_send_meaasge({"text":msg})
                 send_success.append(t['td_tp_id'])
 
 def start():
     data = get_ticket()
     analysis(data)
     check_ticket_number()
-#
-# while(spider_is_ok):
-#     print("*"*10,"执行","*"*30)
-#     start()
-#     time.sleep(10)
 
-my_message.ifttt_send_meaasge({"Value1":"message"})
+while(spider_is_ok):
+    print("*"*10,"执行","*"*30)
+    start()
+    time.sleep(10)
+
+# my_message.ifttt_send_meaasge({"Value1":"message"})
