@@ -28,6 +28,7 @@ def removeTask(taskName):
         return True
 
 def getTakList():
+    reponse={}
     result_tast=[]
     for task in Const.taskList.values():
         task_dict={}
@@ -35,15 +36,24 @@ def getTakList():
         task_dict["statTime"]=task.getCreateTime()
         task_dict["executeTime"]=task.executeTime()
         result_tast.append(task_dict)
-    return result_tast
+    reponse['result_tast']=result_tast
+    reponse['taskNum']=threading.active_count()
+
+    return reponse
 
 
-
-createTask(1,3,"监视美团订单")
-time.sleep(5)
-createTask(2,4,"监视EBK订单")
-print(getTakList())
-time.sleep(5)
-removeTask("监视EBK订单")
-time.sleep(5)
-removeTask("监视美团订单")
+# print("当前线程数量",threading.active_count())
+# createTask(1,3,"监视美团订单")
+# time.sleep(5)
+# createTask(2,4,"监视EBK订单")
+# print("当前线程数量",threading.active_count())
+# print(getTakList())
+# time.sleep(5)
+# removeTask("监视EBK订单")
+# time.sleep(5)
+# print("当前线程数量",threading.active_count())
+# removeTask("监视美团订单")
+# time.sleep(5)
+#
+# time.sleep(5)
+# print("当前线程数量",threading.active_count())

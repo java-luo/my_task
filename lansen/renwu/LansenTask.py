@@ -37,7 +37,9 @@ class Task():
     #任务已经执行时间
     def executeTime(self):
          execute_time=datetime.datetime.now()-self.createTime;
-         return str(execute_time)
+         execute_time=str(execute_time)
+         execute_time=execute_time.split('.')[0]
+         return execute_time
 
     def getCreateTime(self):
         return self.createTime.strftime("%Y-%m-%d %H:%M:%S")
