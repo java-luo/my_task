@@ -11,6 +11,8 @@ headers = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
     "User-Agent": SpiderUtil.get_user_agent()
 }
+
+
 # 场次
 ticket_date = {}
 # 票量
@@ -22,10 +24,19 @@ spider_is_ok = True
 
 """获取国家博物馆票数据"""
 
+def init_ticker():
+    global send_success
+    for ticket in ticket_number:
+        # print("日期%s 票量%s" %(ticket['t_date'],ticket['tp_last_stock_sum']))
+        for t in ticket['tp']:
+            # print(t['tp_last_stock'],type(t['tp_last_stock']))
+            if ((t['tp_last_stock'] < 200) & (t['td_tp_id'] not in send_success)):
+                send_success.append(t['td_tp_id'])
+
 
 def get_ticket():
     global spider_is_ok
-    # https://ticketapi.chnmuseum.cn/api/ticket/calendar?p=w
+    #
     try:
         reponse = requests.get("https://ticketapi.chnmuseum.cn/api/ticket/calendar?p=w", headers=headers)
         if (reponse.status_code != 200):
@@ -73,19 +84,20 @@ def check_ticket_number():
                 send_success.append(t['td_tp_id'])
 
 
+def init():
+    data = get_ticket()
+    analysis(data)
+    init_ticker()
+
 def start():
     data = get_ticket()
     analysis(data)
     check_ticket_number()
 
 
-while(spider_is_ok):
-    print("*"*10,"执行","*"*30)
-    start()
-    time.sleep(10)
+
 
 # my_message.ifttt_send_meaasge({"Value1":"message"})
-
 
 
 

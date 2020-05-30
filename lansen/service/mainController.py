@@ -1,5 +1,6 @@
 from lansen.renwu.MeiTuan import MeiTuanTask
 from lansen.renwu.Ebk import EbkTask
+from lansen.renwu.Guobo import Guobo
 import time
 import  threading
 from lansen.renwu import  Const
@@ -11,12 +12,18 @@ def createTask(taskId,executionTime,taskName):
         t=threading.Thread(target=m.start)
         t.name=taskName
         t.start()
-
     elif(taskId==2):
         eb= EbkTask(executionTime, taskName)
         t = threading.Thread(target=eb.start)
         t.name=taskName
         t.start()
+    elif (taskId == 3):
+        eb = Guobo(executionTime, taskName)
+        t = threading.Thread(target=eb.start)
+        t.name = taskName
+        t.start()
+
+
 #删除任务
 def removeTask(taskName):
     task=Const.taskList.get(taskName)

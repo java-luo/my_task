@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>index!!</title>
+    <title>自动化任务管理</title>
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <link href="css/bootstrap.min.css" rel="stylesheet"></link>
 </head>
@@ -43,34 +43,41 @@
         <h4 class="modal-title" id="myModalLabel">Create Task</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal">
+<form class="form-horizontal" action="/createTask">
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <label for="inputEmail3" class="col-sm-2 control-label">选择任务</label>
         <div class="col-sm-10">
-            <select class="form-control">
-                <option>创建美团任务</option>
-                <option>创建EBK任务</option>
-                <option>创建国博任务</option>
+            <select class="form-control" name="id" id="id">
+                <option value="1">创建美团任务</option>
+                <option value="2">创建EBK任务</option>
+                <option value="3">创建国博任务</option>
             </select>
         </div>
     </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">任务名称</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="taskName" placeholder="任务名称" name="taskName">
+        </div>
+    </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">执行间隔</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+      <input type="number" class="form-control" id="executionTime" placeholder="执行间隔" name="executionTime" >
     </div>
   </div>
 
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Create</button>
+
     </div>
   </div>
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+        <button type="button" onclick="createTask()" class="btn btn-default">Create</button>
       </div>
     </div>
   </div>
@@ -157,6 +164,34 @@
        })
     }
 
+
+    function createTask() {
+        id=document.getElementById("id").value
+        taskName=document.getElementById("taskName").value
+        executionTime=document.getElementById("executionTime").value
+       if(taskName == null || taskName == undefined || taskName == ''){
+            alert("任务名称不能为空")
+             return
+        }
+        if(executionTime == null || executionTime == 0 || executionTime == ''){
+            alert("任务名称不能为空")
+             return
+        }
+        $.post("/createTask",{"id":id,"taskName":taskName,"executionTime":executionTime},function(data){
+
+        }).success(function (data) {
+            if(data=='OK'){
+                alert("创建任务成功")
+                $('#close').click()
+                reload()
+            }else{
+                alert(data)
+            }
+        }).error(function () {
+            alert("创建任务失败")
+        })
+
+    }
     function  reload() {
          $("#tbody1").empty();
          getTaskList()
