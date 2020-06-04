@@ -30,7 +30,7 @@ def init_ticker():
         # print("日期%s 票量%s" %(ticket['t_date'],ticket['tp_last_stock_sum']))
         for t in ticket['tp']:
             # print(t['tp_last_stock'],type(t['tp_last_stock']))
-            if ((t['tp_last_stock'] < 200) & (t['td_tp_id'] not in send_success)):
+            if ((t['tp_last_stock'] < 100) & (t['td_tp_id'] not in send_success)):
                 send_success.append(t['td_tp_id'])
 
 
