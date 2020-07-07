@@ -1,0 +1,159 @@
+{
+    "status": 1,
+    "msg": "",
+    "data": {
+        "yy_date": [
+            {
+                "td_id": 1514,
+                "t_date": "2020-07-08",
+                "tp_last_stock_sum": 338,
+                "tp": [
+                    {
+                        "td_tp_id": 7371,
+                        "tp_last_stock": 14,
+                        "tp_id": 41
+                    },
+                    {
+                        "td_tp_id": 7372,
+                        "tp_last_stock": 202,
+                        "tp_id": 42
+                    },
+                    {
+                        "td_tp_id": 7373,
+                        "tp_last_stock": 122,
+                        "tp_id": 43
+                    }
+                ]
+            },
+            {
+                "td_id": 1517,
+                "t_date": "2020-07-09",
+                "tp_last_stock_sum": 695,
+                "tp": [
+                    {
+                        "td_tp_id": 7383,
+                        "tp_last_stock": 128,
+                        "tp_id": 41
+                    },
+                    {
+                        "td_tp_id": 7384,
+                        "tp_last_stock": 360,
+                        "tp_id": 42
+                    },
+                    {
+                        "td_tp_id": 7385,
+                        "tp_last_stock": 33,
+                        "tp_id": 43
+                    }
+                ]
+            },
+            {
+                "td_id": 1520,
+                "t_date": "2020-07-10",
+                "tp_last_stock_sum": 805,
+                "tp": [
+                    {
+                        "td_tp_id": 7395,
+                        "tp_last_stock": 33,
+                        "tp_id": 41
+                    },
+                    {
+                        "td_tp_id": 7396,
+                        "tp_last_stock": 33,
+                        "tp_id": 42
+                    },
+                    {
+                        "td_tp_id": 7397,
+                        "tp_last_stock": 9,
+                        "tp_id": 43
+                    }
+                ]
+            },
+            {
+                "td_id": 1523,
+                "t_date": "2020-07-11",
+                "tp_last_stock_sum": 0,
+                "tp": [
+                    {
+                        "td_tp_id": 7407,
+                        "tp_last_stock": 0,
+                        "tp_id": 41
+                    },
+                    {
+                        "td_tp_id": 7408,
+                        "tp_last_stock": 0,
+                        "tp_id": 42
+                    },
+                    {
+                        "td_tp_id": 7409,
+                        "tp_last_stock": 0,
+                        "tp_id": 43
+                    }
+                ]
+            },
+            {
+                "td_id": 1526,
+                "t_date": "2020-07-12",
+                "tp_last_stock_sum": 27,
+                "tp": [
+                    {
+                        "td_tp_id": 7419,
+                        "tp_last_stock": 0,
+                        "tp_id": 41
+                    },
+                    {
+                        "td_tp_id": 7420,
+                        "tp_last_stock": 0,
+                        "tp_id": 42
+                    },
+                    {
+                        "td_tp_id": 7421,
+                        "tp_last_stock": 27,
+                        "tp_id": 43
+                    }
+                ]
+            },
+            {
+                "td_id": 1531,
+                "t_date": "2020-07-14",
+                "tp_last_stock_sum": 989,
+                "tp": [
+                    {
+                        "td_tp_id": 7439,
+                        "tp_last_stock": 197,
+                        "tp_id": 41
+                    },
+                    {
+                        "td_tp_id": 7440,
+                        "tp_last_stock": 495,
+                        "tp_id": 42
+                    },
+                    {
+                        "td_tp_id": 7441,
+                        "tp_last_stock": 5,
+                        "tp_id": 43
+                    }
+                ]
+            }
+        ],
+        "tps": [
+            {
+                "tp_id": 41,
+                "time_period_show": "09:00-10:00"
+            },
+            {
+                "tp_id": 42,
+                "time_period_show": "10:00-13:30"
+            },
+            {
+                "tp_id": 43,
+                "time_period_show": "13:30-15:30"
+            }
+        ],
+        "closed_pre_week": [
+            "1"
+        ],
+        "closed_date": [],
+        "opened_date": []
+    }
+}
